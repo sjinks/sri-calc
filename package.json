@@ -1,0 +1,20 @@
+{
+  "name": "sri-calc",
+  "version": "1.0.0",
+  "keywords": [
+    "sri",
+    "subresource integrity",
+    "hash"
+  ],
+  "description": "Module to calculate a SRI hash of a file",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Volodymyr Kolesnykov <volodymyr@wildwolf.name>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^6"
+  },
+  "repository": "sjinks/sri-calc"
+}
