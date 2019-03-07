@@ -1,6 +1,6 @@
 # node-sri
 
-[![Build Status](https://travis-ci.org/sjinks/sri-calc.svg)](https://travis-ci.org/sjinks/sri-calc)
+[![Build Status](https://travis-ci.com/sjinks/sri-calc.svg)](https://travis-ci.com/sjinks/sri-calc)
 
 A simple module to generate SRI hashes of files, whcih then can be used to implement [sub-resource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
 
