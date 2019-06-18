@@ -1,4 +1,4 @@
-# node-sri
+# sri-calc
 
 [![Build Status](https://travis-ci.com/sjinks/sri-calc.svg)](https://travis-ci.com/sjinks/sri-calc)
 
