@@ -20,7 +20,7 @@ describe('sri', function() {
 					done();
 				})
 				.catch((err) => {
-					assert.fail(err, undefined, "Should not happen", "!=");
+					assert.fail("Should not happen");
 				})
 				.catch(() => done())
 			;
@@ -33,7 +33,7 @@ describe('sri', function() {
 					done();
 				})
 				.catch((err) => {
-					assert.fail(err, undefined, "Should not happen", "!=");
+					assert.fail("Should not happen");
 				})
 				.catch(() => done())
 			;
@@ -46,7 +46,7 @@ describe('sri', function() {
 					done();
 				})
 				.catch((err) => {
-					assert.fail(err, undefined, "Should not happen", "!=");
+					assert.fail("Should not happen");
 				})
 				.catch(() => done())
 			;
