@@ -1,6 +1,6 @@
 {
   "name": "sri-calc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "keywords": [
     "sri",
     "subresource integrity",
@@ -14,10 +14,21 @@
   "author": "Volodymyr Kolesnykov <volodymyr@wildwolf.name>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.1"
   },
   "engines": {
     "node": ">= 6.0.0"
   },
-  "repository": "sjinks/sri-calc"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjinks/sri-calc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sjinks/sri-calc/issues"
+  },
+  "homepage": "https://github.com/sjinks/sri-calc#readme",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {}
 }
