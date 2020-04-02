@@ -1,6 +1,6 @@
 {
   "name": "sri-calc",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "keywords": [
     "sri",
     "subresource integrity",
@@ -14,7 +14,7 @@
   "author": "Volodymyr Kolesnykov <volodymyr@wildwolf.name>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^6.2.1"
+    "mocha": "^7.1.1"
   },
   "engines": {
     "node": ">= 6.0.0"
