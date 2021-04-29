@@ -2,10 +2,10 @@
 
 ![Build and Test CI](https://github.com/sjinks/sri-calc/workflows/Build%20and%20Test%20CI/badge.svg)
 
-A simple module to generate SRI hashes of files, whcih then can be used to implement [sub-resource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
+`sri-calc` is a simple module to generate SRI hashes of files, which then can be used to implement [sub-resource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
 
-This module was inspired by [odino/node-sri](https://github.com/odino/node-sri) but it operates differently:
-  * it does not require Linux environment;
+This module was inspired by [odino/node-sri](https://github.com/odino/node-sri), but it operates differently:
+  * it does not require a Linux environment;
   * it uses NodeJS Crypto API instead of launching an external process to calculate a digest
 
 ## Installation

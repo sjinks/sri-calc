@@ -26,6 +26,5 @@
   "homepage": "https://github.com/sjinks/sri-calc#readme",
   "directories": {
     "test": "test"
-  },
-  "dependencies": {}
+  }
 }
