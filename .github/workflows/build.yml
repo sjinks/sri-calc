@@ -1,4 +1,4 @@
-name: Build
+name: Build and Test
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
           - '12'
           - '14'
           - '16'
-    name: Build (Node ${{ matrix.node }})
+    name: Build and Test (Node ${{ matrix.node }})
     steps:
       - name: Check out the code
         uses: actions/checkout@v2
@@ -44,3 +44,6 @@ jobs:
 
       - name: Run postinstall scripts
         run: npm rebuild && npm run prepare --if-present
+
+      - name: Run tests
+        run: npm test
