@@ -15,8 +15,6 @@ function hash(file, cb)
 		prefix: true
 	};
 
-	const hasher = (s) => crypto.createHash(options.hash).update(s).digest('base64');
-
 	if (typeof file === 'object') {
 		for (let prop in file) {
 			options[prop] = file[prop];
@@ -45,7 +43,7 @@ function hash(file, cb)
 	if (typeof cb === 'function') {
 		p
 			.then(digest => cb(null, digest))
-			.catch(err   => cb(err))
+			.catch(cb)
 		;
 	}
 	else {
