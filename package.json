@@ -14,7 +14,7 @@
   "author": "Volodymyr Kolesnykov <volodymyr@wildwolf.name>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^8.2.1"
+    "mocha": "^9.0.0"
   },
   "repository": {
     "type": "git",
