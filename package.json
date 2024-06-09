@@ -23,5 +23,9 @@
   "homepage": "https://github.com/sjinks/sri-calc#readme",
   "directories": {
     "test": "test"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
