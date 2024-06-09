@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
       - name: Set up Node.js environment
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: lts/*
           cache: npm
@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
       - name: Fetch tags
         run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
@@ -50,7 +50,7 @@ jobs:
           echo "::set-output name=body::${BODY}"
 
       - name: Create a release
-        uses: actions/create-release@v1.1.4
+        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e # v1.1.4
         env:
           GITHUB_TOKEN: ${{ secrets.REPOSITORY_ACCESS_TOKEN }}
         with:
