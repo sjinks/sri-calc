@@ -18,12 +18,12 @@ jobs:
     if: github.event_name == 'release' || github.event.inputs.npm == 'yes' || github.event.inputs.gpr == 'yes'
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
         with:
           ref: ${{ github.event.release.tag_name }}
 
       - name: Set up Node.js environment
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: lts/*
           cache: npm
@@ -40,7 +40,7 @@ jobs:
         run: npm pack
 
       - name: Save tarball
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4
         with:
           name: package
           path: "*.tgz"
@@ -63,13 +63,13 @@ jobs:
     steps:
       - name: Set up Node.js environment
         if: github.event.inputs[matrix.registry] == 'yes' || github.event_name == 'release'
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           registry-url: ${{ matrix.registry_url }}
 
       - name: Download tarball
         if: github.event.inputs[matrix.registry] == 'yes' || github.event_name == 'release'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4
         with:
           name: package
 
