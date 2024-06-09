@@ -9,13 +9,10 @@
   "description": "Module to calculate a SRI hash of a file",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "node --test"
   },
   "author": "Volodymyr Kolesnykov <volodymyr@wildwolf.name>",
   "license": "MIT",
-  "devDependencies": {
-    "mocha": "^10.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sjinks/sri-calc.git"
