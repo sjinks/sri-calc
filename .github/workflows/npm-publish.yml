@@ -11,10 +11,15 @@ on:
         description: Publish to NPM?
         required: true
 
+permissions:
+  contents: read
+
 jobs:
   prepare:
     name: Prepare the source code
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     if: github.event_name == 'release' || github.event.inputs.npm == 'yes' || github.event.inputs.gpr == 'yes'
     steps:
       - name: Checkout source
