@@ -59,4 +59,4 @@ sri.hash({file: '/path/to/my/file.js', algo: 'sha512', prefix: false}) // z4PhNX
 
 ## Tests
 
-Have [mocha](https://mochajs.org/) installed and run `npm test`
+Run `npm test`
