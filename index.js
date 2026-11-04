@@ -41,9 +41,9 @@ function hash(file, cb)
 	}
 
 	const p = new Promise((resolve, reject) => {
-		const input = createReadStream(options.file);
-		const hash  = createHash(options.hash);
+		const hash = createHash(options.hash);
 		hash.setEncoding('base64');
+		const input = createReadStream(options.file);
 
 		input.on('end', () => {
 			hash.end();

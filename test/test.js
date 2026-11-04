@@ -2,6 +2,9 @@ const { describe, it } = require('node:test');
 const { strictEqual, rejects } = require('node:assert/strict');
 const { join } = require('node:path');
 const { isPromise } = require('node:util/types');
+const { spawnSync } = require('node:child_process');
+const { mkdtempSync, rmSync, writeFileSync } = require('node:fs');
+const { tmpdir } = require('node:os');
 const { hash } = require('../');
 
 function fixture(name)
@@ -30,6 +33,37 @@ describe('sri', function() {
 			const result = await hash({ file: fixture('sample.js'), hash: 'sha512'})
 			strictEqual('sha512-z4PhNX7vuL3xVChQ1m2AB9Yg5AULVxXcg/SpIdNs6c5H0NE8XYXysP+DGNKHfuwvY7kxvUdBeoGlODJ6+SfaPg==', result);
 		});
+
+		it('should hash known non-empty content', async function(ctx) {
+			const directory = mkdtempSync(join(tmpdir(), 'sri-calc-'));
+			ctx.after(() => rmSync(directory, { recursive: true, force: true }));
+			const file = join(directory, 'content.js');
+			writeFileSync(file, 'abc');
+			strictEqual(await hash(file), 'sha256-ungWv48Bz+pBQUDeXa4iI7ADYaOWF3qctBD/YfIAFa0=');
+		});
+
+		for (const mode of ['promise', 'callback']) {
+			it(`should handle an invalid digest without a later stream error (${mode})`, function(ctx) {
+				const directory = mkdtempSync(join(tmpdir(), 'sri-calc-'));
+				ctx.after(() => rmSync(directory, { recursive: true, force: true }));
+				const script = `
+					const { hash } = require(process.argv[1]);
+					const options = { file: process.argv[2], hash: 'unsupported-digest-for-regression' };
+					const handled = (error, digest) => {
+						if (!(error instanceof Error) || error.code === 'ENOENT' || digest !== undefined) process.exitCode = 7;
+						else process.stdout.write('handled');
+					};
+					if (process.argv[3] === 'callback') hash(options, handled);
+					else hash(options).then(() => { process.exitCode = 7; }, handled);
+				`;
+				const child = spawnSync(process.execPath, [
+					'-e', script, require.resolve('../'), join(directory, 'missing.js'), mode
+				], { encoding: 'utf8', timeout: 5000 });
+				strictEqual(child.error, undefined);
+				strictEqual(child.status, 0, child.stderr);
+				strictEqual(child.stdout, 'handled');
+			});
+		}
 
 		it('should return an error when generating an SRI for a non-existing file', function() {
 			return rejects(() => hash('fixtures/nooooooo.js'), (err) => {
